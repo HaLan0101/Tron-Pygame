@@ -75,6 +75,9 @@ class Menu:
                         # set a mode depend on your choice
                         elif self.mode == "menu" and self.index == 0:
                             self.mode = "play"
+                            pygame.mixer.music.stop()
+                            pygame.mixer.music.load('sound/games.mp3')
+                            pygame.mixer.music.play()
                         elif self.mode == "menu" and self.index == 1:
                             self.mode = "option"
                             # set music
