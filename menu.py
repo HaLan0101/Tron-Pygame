@@ -125,6 +125,7 @@ class Menu:
                 self.game.screen.blit(
                     self.menu_option[ind], (350, 346 + ind * 70))
         # your option before will be moved here
+
         # if your option is GUIDE
         elif self.mode == "guide":
             #  set image
@@ -273,7 +274,7 @@ class Menu:
             animationX += animationX_speed*speed
             animationY += animationY_speed*speed
 
-            # display
+            # display gamemode to chose + d�co
             screen.fill(BLACK)
             pygame.draw.rect(screen, LIGHTBLUE, [0, 0, 500, 500], 10)
             for i in range(len(animationtrailX)):
@@ -351,6 +352,7 @@ class Menu:
                             playerY_speed = 1
                             playerX_speed = 0
 
+                            # --- Game mode Human vs Human
                     if (mode == "human"):
                         if event.key == pygame.K_z:
                             if (roboY_speed == 0):
@@ -387,6 +389,8 @@ class Menu:
             trailY.append(playerY)
             robotrailX.append(roboX)
             robotrailY.append(roboY)
+
+            # --- Robot gameplay (direction / "anti-colision")
 
             """robot decision"""
             if (mode == "computer"):
@@ -529,7 +533,7 @@ class Menu:
             pygame.draw.rect(screen, WHITE, [roboX, roboY, 4, 4])
             pygame.draw.rect(screen, ORANGE, [0, 0, 500, 500], 5)
             font = pygame.font.SysFont('Calibri', 25, True, False)
-
+            # --- display winner name
             if (death == True):
                 text = font.render("ORANGE has WON!", True, WHITE)
                 screen.blit(text, [165, 220])
